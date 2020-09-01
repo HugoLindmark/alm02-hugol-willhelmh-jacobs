@@ -4,17 +4,20 @@
 
 public class RandomFactor {
 
-    public static int getIntFromName(String fullName){
+    public int getIntFromName(String fullName){
 
-        return fullName.lengt + 3;
+        return fullName.length() + 3;
     }
 
-    public static int getIntFromNationality(String nationionality){
+    public  int getIntFromNationality(String nationionality){
 
-        return nationionality.lengt - 3;
+        return nationionality.length() - 3;
     }
 
-    public static int getIntFromAge(int age){
+    public  int getIntFromAge(int age){
         return age + 9;
     }
+
+
+
 }
