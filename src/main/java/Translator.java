@@ -4,10 +4,7 @@
 //a-h or l-z, if the person is under 20 yo, etc, will return a String with a fortune message.
 
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -15,51 +12,52 @@ import java.util.Scanner;
 public class Translator {
 
     RandomFactor randomFactor = new RandomFactor();
+    List<String> fortuneList = new ArrayList<>();
 
-    public  void getTheNumber() {
+
+    public  int getTheNumber() {
         int intFromName = randomFactor.getIntFromName("Carl af Linné");
         int intFromNationality = randomFactor.getIntFromNationality("Schweden");
         int intFromAge = randomFactor.getIntFromAge(103);
         int randomNr = (intFromAge + intFromNationality + intFromName ) / 4;
-
 
         if (randomNr > 100){
             randomNr ++;
         }else {
             randomNr --;
         }
-
-        System.out.println(randomNr);
-
+        return randomNr;
     }
 
 
-    public List<String> getFortuneFromList() throws FileNotFoundException {
-        String fortune = "";
-        File file;
+    public List<String> getFortuneList() throws FileNotFoundException {
+
+        File file = new File(getClass().getClassLoader().getResource("fortunes.txt").getFile());
         List<String> fortuneList = new ArrayList<>();
-
-
         try {
-            file = new File ("classpath:fortunes.txt");
             Scanner sc = new Scanner(file);
-            String line = null;
-            while (sc.hasNext()){
+            String line = "";
+            while (sc.hasNextLine()){
+                line = sc.nextLine();
                 fortuneList.add(line);
             }
-
         } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
             e.printStackTrace();
         }
 
         return fortuneList;
     }
 
+    public void getFortuneFromList(int row) throws FileNotFoundException {
+        System.out.println(getFortuneList().get(row));
+    }
 
-
-
-    public static void main(String[] args) {
+    public static void main(String[] args) throws FileNotFoundException {
         Translator getTheNr = new Translator();
         getTheNr.getTheNumber();
+        getTheNr.getFortuneList();
+        getTheNr.getFortuneFromList(getTheNr.getTheNumber());
     }
 }
