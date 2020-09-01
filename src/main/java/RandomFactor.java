@@ -3,4 +3,18 @@
 
 
 public class RandomFactor {
+
+    public static int getIntFromName(String fullName){
+
+        return fullName.lengt + 3;
+    }
+
+    public static int getIntFromNationality(String nationionality){
+
+        return nationionality.lengt - 3;
+    }
+
+    public static int getIntFromAge(int age){
+        return age + 9;
+    }
 }

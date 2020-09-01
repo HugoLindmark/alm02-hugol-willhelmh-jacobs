@@ -5,4 +5,13 @@
 
 
 public class Translator {
+
+    RandomFactor randomFactor = new RandomFactor();
+    Person person = new Person();
+
+
+    public static int getTheNumber (){
+        int intFromName = randomFactor.getIntFromFulLname(person.)
+
+    }
 }
