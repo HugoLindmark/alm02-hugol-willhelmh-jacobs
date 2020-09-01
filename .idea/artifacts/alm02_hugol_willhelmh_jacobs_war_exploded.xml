@@ -1,0 +1,23 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="alm02-hugol-willhelmh-jacobs:war exploded">
+    <output-path>$PROJECT_DIR$/target/alm02-hugol-willhelmh-jacobs-1.0-SNAPSHOT</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <exploded>true</exploded>
+        <module>alm02-hugol-willhelmh-jacobs</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="root">
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="alm02-hugol-willhelmh-jacobs" />
+        </element>
+      </element>
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/target/alm02-hugol-willhelmh-jacobs-1.0-SNAPSHOT/META-INF/MANIFEST.MF" />
+      </element>
+      <element id="javaee-facet-resources" facet="alm02-hugol-willhelmh-jacobs/web/Web" />
+    </root>
+  </artifact>
+</component>
